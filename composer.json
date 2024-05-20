@@ -44,6 +44,11 @@
             "php": "8.1"
         }
     },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
     "extra": {
         "drupal-scaffold": {
             "locations": {
@@ -96,5 +101,26 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-create-project-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptHandler::createLocalSettingsFile"
+        ],
+        "drupal-scaffold": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ],
+        "nuke": [
+            "rm -rf docroot/modules/contrib",
+            "rm -rf docroot/themes/contrib",
+            "rm -rf docroot/profiles/contrib",
+            "rm -rf vendor"
+        ],
+        "setup:local": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
     }
 }
