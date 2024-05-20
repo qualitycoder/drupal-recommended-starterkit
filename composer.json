@@ -143,9 +143,9 @@
         "setup:local": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
-        "drupal:quick-start": [
+        "drupal:install": [
             "Composer\\Config::disableProcessTimeout",
-            "@php -d max_execution_time=0 web/core/scripts/drupal quick-start demo_umami"
+            "@php -d max_execution_time=0 web/core/scripts/drupal install demo_umami"
         ]
     }
 }

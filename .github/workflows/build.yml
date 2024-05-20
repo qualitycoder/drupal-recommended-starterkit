@@ -19,5 +19,5 @@ jobs:
         run: composer validate
       - name: Install composer dependencies
         run: composer install --ansi
-      - name: Run site
-        run: composer drupal:quick-start
+      - name: Install site
+        run: composer drupal:install
