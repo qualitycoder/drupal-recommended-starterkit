@@ -145,7 +145,7 @@
         ],
         "drupal:quick-start": [
             "Composer\\Config::disableProcessTimeout",
-            "@php -d max_execution_time=0 web/core/scripts/drupal quick-start demo_umami 2>&1 &"
+            "@php -d max_execution_time=0 web/core/scripts/drupal quick-start demo_umami"
         ]
     }
 }
