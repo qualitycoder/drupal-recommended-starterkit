@@ -1,0 +1,23 @@
+name: Main
+
+on:
+  push:
+    branches: [ 10.x ]
+  pull_request:
+    branches: [ 10.x ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: specbee/drupalci:10.2-php8.2-apache
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+      - name: Install composer dependencies
+        run: composer install --ansi
+      - name: Run site
+        run: composer drupal:quick-start
