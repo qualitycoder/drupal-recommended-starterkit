@@ -134,13 +134,6 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalProject\\composer\\ScriptHandler::createLocalSettingsFile"
         ],
-        "drupal-scaffold": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
-        "drupal:install": [
-            "Composer\\Config::disableProcessTimeout",
-            "@php -d max_execution_time=0 web/core/scripts/drupal install demo_umami"
-        ],
         "nuke": [
             "rm -rf docroot/modules/contrib",
             "rm -rf docroot/themes/contrib",

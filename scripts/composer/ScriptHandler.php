@@ -4,9 +4,10 @@ namespace DrupalProject\composer;
 
 use Composer\Script\Event;
 use Drupal\Core\Site\Settings;
-use DrupalFinder\DrupalFinder;
+use Drupal\Core\Site\SettingsEditor;
 use DrupalFinder\DrupalFinderComposerRuntime;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Path;
 
 /**
  * Composer scripts for setup tasks and files.
@@ -46,6 +47,11 @@ class ScriptHandler {
       require_once $drupalRoot . '/core/includes/bootstrap.inc';
       require_once $drupalRoot . '/core/includes/install.inc';
       new Settings([]);
+      $settings['settings']['config_sync_directory'] = (object) [
+        'value' => Path::makeRelative('../config/sync', $drupalRoot),
+        'required' => TRUE,
+      ];
+      SettingsEditor::rewrite($drupalRoot . '/sites/default/settings.php', $settings);
       $fs->chmod($drupalRoot . '/sites/default/settings.php', 0666);
       $event->getIO()->write("Created a sites/default/settings.php file with chmod 0666");
     }
