@@ -20,4 +20,6 @@ jobs:
       - name: Install composer dependencies
         run: composer install --ansi
       - name: Install site
-        run: php -d max_execution_time=0 web/core/scripts/drupal install demo_umami
+        run: |
+          cp .env.example .env
+          php -d max_execution_time=0 web/core/scripts/drupal install demo_umami
