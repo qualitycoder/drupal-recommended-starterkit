@@ -19,6 +19,7 @@
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
+        "drupal/dotenv": "^1.2",
         "drush/drush": "^12.5",
         "oomphinc/composer-installers-extender": "^2.0"
     },
@@ -43,6 +44,9 @@
     "autoload": {
         "classmap": [
             "scripts/composer/ScriptHandler.php"
+        ],
+        "files": [
+            "load.environment.php"
         ]
     },
     "config": {
@@ -68,7 +72,7 @@
         "drupal-core-project-message": {
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
+                "<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
                 "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
