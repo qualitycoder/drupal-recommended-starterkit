@@ -132,10 +132,22 @@
         "patches-file": "composer.patches.json"
     },
     "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
         "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-create-project-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
             "DrupalProject\\composer\\ScriptHandler::createLocalSettingsFile"
         ],

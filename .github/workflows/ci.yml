@@ -43,15 +43,13 @@ jobs:
         run: composer --version
 
       - name: Validate composer.json
-        run: composer --verbose validate
+        run: composer validate
 
       - name: Install dependencies
-        run: composer --verbose install
+        run: composer install --ansi
 
       - name: Install site
-        run: |
-          cp .env.example .env
-          php -d max_execution_time=0 web/core/scripts/drupal install demo_umami
+        run: php -d max_execution_time=0 web/core/scripts/drupal install demo_umami
 
       - run: ./vendor/bin/drush runserver $SIMPLETEST_BASE_URL &
 
