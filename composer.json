@@ -39,7 +39,7 @@
             "url": "https://asset-packagist.org"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
