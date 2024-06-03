@@ -16,10 +16,30 @@ Project](https://github.com/drupal/recommended-project/) and [Drupal Composer Te
 
 ## Installation
 
-Create a new project with Composer create project command
+Create a new project with Composer create project command from dev version.
 
 ```bash
-composer create-project specbee/drupal-recommended-starterkit:10.x-dev --no-interaction drupal10
+composer create-project specbee/drupal-recommended-starterkit:10.x-dev
+--no-interaction drupal10
+cd drupal10
+ddev start
+```
+
+This will install `drupal 10.3.0-beta1`
+For `drupal 10.2.6` run the below command:
+
+```bash
+composer create-project specbee/drupal-recommended-starterkit:1.0.0
+--no-interaction drupal10
+cd drupal10
+ddev start
+```
+
+For `drupal 11.0.0-beta1` run the below command:
+
+```bash
+composer create-project specbee/drupal-recommended-starterkit:2.0.0
+--no-interaction drupal11
 cd drupal10
 ddev start
 ```
@@ -27,8 +47,8 @@ ddev start
 **Please note: You'll need DDEV 1.23.0 or later. [See the documentation](https://ddev.readthedocs.io/en/stable/users/install/ddev-upgrade/) if you need to upgrade.**
 
 You can update the local development configurations for Local Development in the
- `.ddev/config.yml` file. For example, to change the project name update the
- `name` parameter in the configuration file.
+`.ddev/config.yml` file. For example, to change the project name update the
+`name` parameter in the configuration file.
 
 ## Adding Packages
 
@@ -68,7 +88,8 @@ grumphp:
   tasks:
     git_commit_message:
       matchers:
-        "Must follow the pattern": '/(^JIRA-[0-9]+(: )[^ ].{5,}\.)|(Merge branch (.)+)/'
+        "Must follow the pattern":
+        '/(^JIRA-[0-9]+(: )[^ ].{5,}\.)|(Merge branch (.)+)/'
 ```
 
 ## Using DotEnv
@@ -81,6 +102,7 @@ throughout your code. Some examples:
 
 ```php
 <?php
+// phpcs:ignore
 // settings.php.
 $databases['default']['default'] = [
   'database' => $_ENV['DB_DATABASE'],
@@ -99,7 +121,8 @@ $config['mandrill.settings'] = [
 ```
 
 ```php
-< ? php
+// phpcs:ignore
+<? php
 
 namespace Drupal\yourmodule;
 
@@ -107,22 +130,26 @@ use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\DependencyInjection\ServiceProviderInterface;
 
 /**
- *
+ * Sample class.
  */
 class YourmoduleServiceProvider implements ServiceProviderInterface {
 
   /**
-   *
+   * Sample method.
    */
   public function register(ContainerBuilder $container) {
     $container->setParameter('yourmodule.some_secret', $_ENV['SOME_SECRET']);
   }
 
 }
+php ?>
 ```
 
-On live environments, you should invoke `drush dotenv:dump` every time your ` . env` file changes. If you don't, the ` . env` file will be loaded at every request, which will decrease the performance of your application.
+On live environments, you should invoke `drush dotenv:dump` every time your
+`.env` file changes. If you don't, the `.env` file will be loaded at every
+request, which will decrease the performance of your application.
 
-You can use the `drush dotenv:dump` command to get debugging info about the scanned dotenv files and the loaded variables.
+You can use the `drush dotenv:dump` command to get debugging info about the
+scanned dotenv files and the loaded variables.
 
 Read the [Symfony documentation](https://symfony.com/doc/current/configuration.html#configuring-environment-variables-in-env-files) for more information.
