@@ -73,17 +73,14 @@
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
                 "<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
+                "<bg=blue;fg=white>  from the specbee/drupal-recommended-starterkit template!          </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
-                "  * Install the site: https://www.drupal.org/docs/installing-drupal",
-                "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
-                "  * Get support: https://www.drupal.org/support",
-                "  * Get involved with the Drupal community:",
-                "      https://www.drupal.org/getting-involved",
-                "  * Remove the plugin that prints this message:",
-                "      composer remove drupal/core-project-message"
+                "  * Install the site: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#installation",
+                "  * Adding Packages: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#adding-packages",
+                "  * Using GrumPHP: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#using-grumphp",
+                "  * Using DotEnv: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#using-dotenv"
             ]
         },
         "drupal-scaffold": {
@@ -105,6 +102,9 @@
             ],
             "web/profiles/contrib/{$name}": [
                 "type:drupal-profile"
+            ],
+            "web/recipes/contrib/{$name}": [
+                "type:drupal-recipe"
             ],
             "web/themes/contrib/{$name}": [
                 "type:drupal-theme"

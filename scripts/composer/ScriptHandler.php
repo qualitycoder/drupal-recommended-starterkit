@@ -32,6 +32,7 @@ class ScriptHandler {
       'modules',
       'profiles',
       'themes',
+      'recipes',
     ];
 
     // Required for unit testing.
