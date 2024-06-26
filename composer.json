@@ -124,7 +124,8 @@
         },
         "installer-types": [
             "bower-asset",
-            "npm-asset"
+            "npm-asset",
+            "drupal-recipe"
         ],
         "patchLevel": {
             "drupal/core": "-p2"
