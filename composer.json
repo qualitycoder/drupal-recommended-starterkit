@@ -39,7 +39,7 @@
             "url": "https://asset-packagist.org"
         }
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "classmap": [
@@ -103,7 +103,7 @@
             "web/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "web/recipes/contrib/{$name}": [
+            "web/recipes/{$name}": [
                 "type:drupal-recipe"
             ],
             "web/themes/contrib/{$name}": [
@@ -153,9 +153,10 @@
             "DrupalProject\\composer\\ScriptHandler::createLocalSettingsFile"
         ],
         "nuke": [
-            "rm -rf docroot/modules/contrib",
-            "rm -rf docroot/themes/contrib",
-            "rm -rf docroot/profiles/contrib",
+            "rm -rf web/modules/contrib",
+            "rm -rf web/themes/contrib",
+            "rm -rf web/profiles/contrib",
+            "rm -rf web/recipes",
             "rm -rf vendor"
         ],
         "setup:local": [
