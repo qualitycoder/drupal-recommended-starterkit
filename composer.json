@@ -14,7 +14,7 @@
     "require": {
         "php": ">=8.1",
         "composer/installers": "^2.0",
-        "cweagans/composer-patches": "^2",
+        "cweagans/composer-patches": "^1.7",
         "drupal/config_sync_without_site_uuid": "^1.0@beta",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
