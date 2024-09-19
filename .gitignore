@@ -65,3 +65,12 @@ npm-debug.log
 
 # Ignore .env files as they are personal
 .env
+
+# Ignore test artifacts
+test/node_modules
+tests/cypress/videos
+tests/cypress/screenshots
+tests/cypress/reports
+tests/cypress/downloads
+new-report
+
